@@ -2,6 +2,8 @@
 Puppetboard
 ###########
 
+MERGED PR-108 PR-93 and PR-48 into master!
+
 Puppetboard is a web interface to `PuppetDB`_ aiming to replace the reporting
 functionality of `Puppet Dashboard`_.
 
