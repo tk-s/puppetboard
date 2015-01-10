@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
+from pprint import pprint
 
 import json
 
@@ -53,10 +54,11 @@ def yield_or_stop(generator):
         except (EmptyResponseError, ConnectionError, HTTPError):
             raise StopIteration
 
-def eventcount_percentage(puppetdb, summarize_by):
+def eventcount_percentage(puppetdb, sum_by):
     events = puppetdb._query('aggregate-event-counts',
-                             query="[\"=\",\"latest-report?\",\"true\"]",
-                             summarize_by=summarize_by)
+                             query='["=","latest-report?","true"]',
+                             summarize_by=sum_by)
+    pprint(events)
     events['failures_per'] = float(events['failures']) / float(events['total']) * 100
     events['skips_per'] = float(events['skips']) / float(events['total']) * 100
     events['successes_per'] = float(events['successes']) / float(events['total']) * 100
