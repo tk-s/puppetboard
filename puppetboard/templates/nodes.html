@@ -48,7 +48,6 @@
           <td></td>
         {% endif -%}
       {% endfor -%}
-      <td rel="utctimestamp">{{node.catalog_timestamp}}</td>
       <td><a rel="utctimestamp" href="{{url_for('catalog_node', node_name=node.name)}}">{{node.catalog_timestamp}}</a></td>
       <td>
         {% if node.report_timestamp %}
